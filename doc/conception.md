@@ -30,3 +30,7 @@ ARTICLE: code_article, category, slug, title, image, content
 CATEGORY: code_category, label
 BELONGS TO, 11 ARTICLE, 0N CATEGORY
 ```
+
+C:\Users\adlen\Desktop\retour socle\BlogApi\doc\unknown.png
+
+
