@@ -24,7 +24,7 @@
 ```bash
 USER: code_user, email, firstname, lastname, password
 WRITES, 11 ARTICLE, 0N USER
-ARTICLE: code_article, category, slug, title, image, content
+ARTICLE: code_article, category, slug, title, content
 
 :
 CATEGORY: code_category, label
@@ -32,5 +32,20 @@ BELONGS TO, 11 ARTICLE, 0N CATEGORY
 ```
 ![CDM](unknown.png)
 
+## LDM
 
+```bash
+User (CodeUser, Email, FirstName, LastName, Password)
 
+Category ( CodeCategory, Label)
+
+Article ( CodeArticle, Category, Slug, Title, Image, Content)
+
+BELONGS_TO (CodeCategory, CodeArticle)
+
+WRITES (CodeUser, CodeArticle)
+```
+
+## PDM 
+
+![PDM](pdm.pgerd.png)
