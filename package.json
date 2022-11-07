@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "blogapi",
   "version": "1.0.0",
   "description": "Simple BLOG API",
