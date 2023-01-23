@@ -1,4 +1,4 @@
-import { Article} from '../models/articles.js'
+import { Article } from '../models/articles.js'
 
 async function fetchAllArticles(req, res) {
     try {
@@ -23,4 +23,15 @@ async function fetchOneArticle(req, res) {
     }
 }
 
-export {fetchAllArticles, fetchOneArticle}
+async function createArticle(req, res) {
+    try {
+    console.log(req.body);
+    await Article.createArticle(req.body);
+    return res.status(200).json("post has been successfully created");
+    } catch (err) {
+        console.log(err);
+        res.status(500).json('erreur 500:' + err.message);
+    }
+}
+
+export {fetchAllArticles, fetchOneArticle, createArticle}

@@ -1,4 +1,4 @@
-import { findAll, findOne } from "../dataMapper/articlesDataMapper.js";
+import { createData, findAll, findOne } from "../dataMapper/articlesDataMapper.js";
 
 class Article {
     static async findAllArticles() {
@@ -9,6 +9,10 @@ class Article {
         return findOne(articleId)
 
     }
+
+    static async createArticle(articleData) {
+        return createData(articleData)
+    }
 }
 
-export { Article}
+export { Article }

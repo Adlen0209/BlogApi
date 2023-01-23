@@ -15,7 +15,17 @@ async function findOne(articleId) {
     )
     return result.rows[0]
 }
-
 // A FAIRE :  add CREATE UPTADE DELETE methods
+async function createData(articleData) {
+    let { category, slug, title, content, category_id, user_id } = articleData;
 
-export { findAll, findOne}
+    const sql = {
+        text: `INSERT INTO "${TABLE_NAME}" ("category", "slug", "title", "content", "category_id", "user_id")
+               VALUES ($1,$2,$3,$4,$5,$6);`,
+        values: [category, slug, title, content, category_id, user_id],
+    }
+    const result = await client.query(sql);
+    return result.rows[0];
+}
+
+export { findAll, findOne, createData}
