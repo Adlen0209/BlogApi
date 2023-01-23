@@ -1,4 +1,4 @@
-import { createData, findAll, findOne, updateData } from "../dataMapper/articlesDataMapper.js";
+import { createData, findAll, findOne, updateData, deleteData } from "../dataMapper/articlesDataMapper.js";
 
 class Article {
     static async findAllArticles() {
@@ -16,6 +16,10 @@ class Article {
 
     static async updateArticle(articleId, articleData) {
         return updateData(articleId, articleData)
+    }
+
+    static async deleteArticle(articleId) {
+        return deleteData(articleId)
     }
 }
 

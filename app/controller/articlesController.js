@@ -57,4 +57,21 @@ async function updateArticle(req, res) {
     }
 }
 
-export {fetchAllArticles, fetchOneArticle, createArticle, updateArticle}
+async function deleteArticle(req, res) {
+    
+        
+        //userId a géré apres connxion
+        // if (!(articleInfo.user_id === +req.userId)) {
+        //     return res.status(403).json('Unautorized action');
+        // }
+    try {
+        const articleId = +req.params.id;
+        await Article.deleteArticle(articleId);
+        return res.status(200).json('your post has successfully been deleted');
+    } catch (err) {
+        console.log(err);
+        res.status(500).json('erreur 500 delete article ' + err.message);
+    }
+}
+
+export {fetchAllArticles, fetchOneArticle, createArticle, updateArticle, deleteArticle}

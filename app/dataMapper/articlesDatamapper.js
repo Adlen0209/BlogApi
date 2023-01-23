@@ -48,4 +48,14 @@ async function updateData(articleId, articleData) {
     return result.rowCount;
 }
 
-export { findAll, findOne, createData, updateData}
+async function deleteData(articleId) {
+    
+    const sql = {
+        text: `DELETE FROM "${TABLE_NAME}" WHERE "id" = $1;`,
+        values: [articleId],
+    }
+    const result = await client.query(sql);
+    return result.rowCount;
+}
+
+export { findAll, findOne, createData, updateData, deleteData}
