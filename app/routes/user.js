@@ -7,7 +7,9 @@ const router = Router();
 
 router.post('/api/v1/register', createUser);
 
-router.post('/api/v1/login', login)
+router.post('/api/v1/login', login);
+
+
 
 
 
