@@ -1,3 +1,4 @@
+import { request, response } from 'express'
 import { Article } from '../models/articles.js'
 
 async function fetchAllArticles(req, res) {
@@ -34,4 +35,26 @@ async function createArticle(req, res) {
     }
 }
 
-export {fetchAllArticles, fetchOneArticle, createArticle}
+async function updateArticle(req, res) {
+    try {
+        const articleId = +req.params.id;
+        let articleInfo = await Article.findOneArticle(articleId);
+       
+        //userId a géré apres connxion
+        // if (!(articleInfo.user_id === +req.userId)) {
+        //     return res.status(403).json('Unautorized action');
+        // }
+        for (const key in articleInfo) {
+            req.body[key] ? req.body[key] : (req.body[key] = articleInfo[key]);
+        }
+
+        await Article.updateArticle(articleId, req.body);
+        return res.status(200).json('your post has been successfully edited');
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json('erreur 500' + err.message)
+    }
+}
+
+export {fetchAllArticles, fetchOneArticle, createArticle, updateArticle}
