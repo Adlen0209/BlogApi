@@ -21,6 +21,8 @@ class Article {
     static async deleteArticle(articleId) {
         return deleteData(articleId)
     }
+
+    static async 
 }
 
 export { Article }

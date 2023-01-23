@@ -16,4 +16,7 @@ router.use('/', categoryRouter)
 import { router as articlesRouter } from './article.js'
 router.use('/', articlesRouter)
 
-export { router};
+import { router as userRouter } from './user.js';
+router.use('/', userRouter)
+
+export { router };

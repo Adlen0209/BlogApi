@@ -16,7 +16,7 @@ async function findOne(articleId) {
     )
     return result.rows[0]
 }
-// A FAIRE :  add CREATE UPTADE DELETE methods
+
 async function createData(articleData) {
     let { category, slug, title, content, category_id, user_id } = articleData;
 
